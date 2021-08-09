@@ -19,12 +19,13 @@ export default function Education({classLevel, address}){
     return(
         <>
             <ScrollView>
-                <Text>{classLevel}</Text>
-                <Text>{address}</Text>
+                <Text style={styles.fontDesc}>{classLevel}</Text>
+                <Text style={styles.fontDesc}>{address}</Text>
+                <Text style={styles.fontTitle}>ประวัติการศึกษา</Text>
                 <Text style={styles.fontDesc}>ปีการศึกษา 2555 จบจากโรงเรียนสำโรงทาบวิทยาคม</Text>
                 <Text style={styles.fontDesc}>ปีการศึกษา 2561 จบจากมหาวิทยาลัยมหาสารคาม</Text>
-                <Text style={styles.fontDesc}>{count}</Text>
-                <Button title='เพิ่มค่า' onPress={()=>increaseNumber()}/>
+                {/* <Text style={styles.fontDesc}>{count}</Text> */}
+                {/* <Button title='เพิ่มค่า' onPress={()=>increaseNumber()}/>
                 <Button title='ลดค่า' onPress={()=>decreaseNumber()}/>
                 {
                     <FlatList 
@@ -32,14 +33,22 @@ export default function Education({classLevel, address}){
                         renderItem={renderItem}
                         keyExtractor={item => item}
                     />
-                }
+                } */}
             </ScrollView>
         </>
     )
 }
 const styles = StyleSheet.create({
+    fontTitle:{
+        color: '#666', 
+        fontSize: 18,
+        fontFamily: 'sarabun-medium',
+        marginLeft: 8
+    },
     fontDesc:{
-        color: 'green', 
-        fontSize: 22
+        color: '#666', 
+        fontSize: 16,
+        fontFamily: 'sarabun-light',
+        marginLeft: 8
     }
 })
