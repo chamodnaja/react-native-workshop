@@ -1,7 +1,10 @@
 import React from 'react'
 import { Text, View, StyleSheet, Image } from 'react-native'
 import Education from './components/education'
+import FillForm from './components/fillForm'
+import loadResource from './hooks/loadResource';
 export default function App(){
+  const isLoadingComplete = loadResource();
   return(
     <>
       <View style={styles.container}>
@@ -9,9 +12,10 @@ export default function App(){
           <Image style={[styles.profileImage,{marginRight: 5}]} source={require('./assets/images/cat.jpg')}/>
           <Image style={styles.profileImage} source={{uri: 'https://i.ibb.co/YNTj9Gb/puppy.jpg'}}/>
         </View>
-        <Text style={styles.fontStyle}>Hello World!</Text>
+        <Text style={styles.fontStyle}>สวัสดี</Text>
         <Text style={styles.fontDesc}>Chanat  Chumchan</Text>
-        <Education />
+        {/* <Education classLevel='ชั้นปีที่ 3' address="92 ม.4 ต...."/> */}
+        <FillForm />
       </View>
     </>
   )
@@ -38,7 +42,7 @@ const styles = StyleSheet.create({
   },
   fontStyle: {
     color: 'blue', 
-    fontSize: 26
+    fontSize: 26,
   },
   fontDesc: {
     color: 'green', 
