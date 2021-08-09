@@ -5,20 +5,25 @@ import FillForm from './components/fillForm'
 import loadResource from './hooks/loadResource';
 export default function App(){
   const isLoadingComplete = loadResource();
-  return(
-    <>
-      <View style={styles.container}>
-        <View style={styles.boxImage}>
-          <Image style={[styles.profileImage,{marginRight: 5}]} source={require('./assets/images/cat.jpg')}/>
-          <Image style={styles.profileImage} source={{uri: 'https://i.ibb.co/YNTj9Gb/puppy.jpg'}}/>
+  if(!isLoadingComplete){
+    return null
+  }else{
+    return(
+      <>
+        <View style={styles.container}>
+          <View style={styles.boxImage}>
+            <Image style={[styles.profileImage,{marginRight: 5}]} source={require('./assets/images/cat.jpg')}/>
+            <Image style={styles.profileImage} source={{uri: 'https://i.ibb.co/YNTj9Gb/puppy.jpg'}}/>
+          </View>
+          <Text style={styles.fontStyle}>สวัสดี</Text>
+          <Text style={styles.fontDesc}>Chanat  Chumchan</Text>
+          {/* <Education classLevel='ชั้นปีที่ 3' address="92 ม.4 ต...."/> */}
+          <FillForm />
         </View>
-        <Text style={styles.fontStyle}>สวัสดี</Text>
-        <Text style={styles.fontDesc}>Chanat  Chumchan</Text>
-        {/* <Education classLevel='ชั้นปีที่ 3' address="92 ม.4 ต...."/> */}
-        <FillForm />
-      </View>
-    </>
-  )
+      </>
+    )
+  }
+  
 }
 const styles = StyleSheet.create({
   boxImage:{
@@ -43,6 +48,7 @@ const styles = StyleSheet.create({
   fontStyle: {
     color: 'blue', 
     fontSize: 26,
+    fontFamily: 'sarabun-light'
   },
   fontDesc: {
     color: 'green', 
